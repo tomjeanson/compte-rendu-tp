@@ -1,3 +1,87 @@
+# Compte Rendu TP 1 R1.01
+**Tom JEANSON** 
+**Groupe :** B2
+**N° étudiant :** e22601522
+## Exercice 2 – Correction d’erreurs
+```java
+/**
+* Correction d’erreurs R1.01
+* @author Tom Jeanson
+*/
+//erreur de convention : author et * absents
+class Syntaxe{ 	 	
+	void principal(){
+		//erreur de convention, Val2 -> val2 : camelCase
+		int val1, val2;
+		int val3;
+		
+		//erreur de syntaxe, ";" manquant
+		val1 = SimpleInput.getInt("Premier entier :");
+		val2 = SimpleInput.getInt("Deuxieme entier :");
+		//erreur de syntaxe, "3" manquant
+		val3 = SimpleInput.getInt("Troisieme entier :");
+		//erreur de convention, "espace" manquant
+		if (val1 < val3 && val2 < val3) {
+			//erreur de syntaxe, guillemets non fermés
+			System.out.println("Le troisieme entier " + val3 + " est le plus grand.");
+		} else if (val1 < val2 && val3 < val2) {
+			System.out.println("Le deuxieme entier " + val2 + " est le plus grand.");
+		} else if (val2 < val1 && val3 < val1) {
+			System.out.println("Le premier entier " + val1 + " est le plus grand.");
+		//erreur de syntaxe, "}" manquant
+		}	
+	}
+}
+```
+#### Exemples 
+```java
+Premier entier :5
+Deuxieme entier :8
+Troisieme entier :150
+Le troisieme entier 150 est le plus grand.
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+```java
+Premier entier :-20
+Deuxieme entier :25
+Troisieme entier :1800
+Le troisieme entier 1800 est le plus grand.
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+## Exercice 3 – Premier programme en Java
+```java
+/**
+* Calcul du périmètre et de l'aire d'un cercle R1.01
+* @author Tom JEANSON
+**/
+class CalcCercle{
+	void principal(){
+		int rayon;
+		rayon = SimpleInput.getInt("Rayon du cercle :");
+		System.out.println("Périmètre = " + rayon*3.1416*2);
+		System.out.println("Aire = " + 3.1416*rayon*rayon);
+	}
+}
+```
+#### Exemple
+```java
+Rayon du cercle :5
+Périmètre = 31.416
+Aire = 78.54
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
 ## Exercice 4 – Bowling
 ```java
 /**
@@ -24,6 +108,7 @@ class Bowling{
 	}
 }
 ```
+#### Exemples 
 ```java
 Quilles tombées pour la première boule :4
 Quilles tombées pour la deuxième boule :4
@@ -106,6 +191,7 @@ class FicheSalaire{
 	}
 }
 ```
+#### Exemple
 ```java
 Salaire Brut :2000
 Salaire Brut = 2000.0
