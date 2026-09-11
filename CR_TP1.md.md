@@ -71,3 +71,38 @@ Nombre de quilles invalides !
 (program exited with code: 0)
 Press return to continue
 ```
+## Exercice 5 – Fiche de salaire 
+```java
+/**
+* Fiche de salaire R1.01
+* @author Tom JEANSON
+*/
+class FicheSalaire{
+	void principal(){
+		double salaireBrut, salaireNet, totalPrelevements;
+		double assuMaladie, assuVeillesseDeplafonee, assuVeillessePlafonee;
+		double fraisPro, csg, crds, chomage;
+		salaireBrut = SimpleInput.getDouble("Salaire Brut :");
+		assuMaladie = salaireBrut * 0.0075;
+		assuVeillesseDeplafonee = salaireBrut * 0.001;
+		assuVeillessePlafonee = salaireBrut * 0.0675;
+		fraisPro = salaireBrut * 0.0175;
+		csg = salaireBrut * 0.075;
+		crds = salaireBrut * 0.005;
+		chomage = salaireBrut * 0.024;
+		totalPrelevements = assuMaladie + assuVeillesseDeplafonee + assuVeillessePlafonee + fraisPro + csg + crds + chomage;
+		salaireNet = salaireBrut - totalPrelevements;
+		System.out.println("Salaire Brut = " + salaireBrut);
+		System.out.println("Détails Prélèvements : ");
+		System.out.println("- Assurance maladie = " + assuMaladie);
+		System.out.println("- Assurance vieilesse déplafonée = " +  assuVeillesseDeplafonee);
+		System.out.println("- Assurance vieilesse plafonée = " + assuVeillessePlafonee);
+		System.out.println("- Frais professionels = " + fraisPro);
+		System.out.println("- Contribution sociale généralisée = " + csg); 
+		System.out.println("- CRDS = " + crds);
+		System.out.println("- Chômage = " + chomage);
+		System.out.println("- Prélèvements totaux = " + totalPrelevements);
+		System.out.println("Salaire Net = " + salaireNet);
+	}
+}
+```
