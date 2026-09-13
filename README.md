@@ -1,2 +1,2 @@
-# compte-rendu-tp
-pour stocker les comptes rendus de tp
+# Compte Rendu TP
+Pour stocker et accéder facilement aux comptes rendus de Travaux Pratiques.
