@@ -1,2 +1,2 @@
 # Compte Rendu TP
-Pour stocker et accéder facilement aux comptes rendus de Travaux Pratiques.
+Pour stocker et accéder facilement aux comptes rendus de <font color='red'>Travaux Pratiques<\font>.
