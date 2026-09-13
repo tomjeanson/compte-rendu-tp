@@ -3,6 +3,7 @@
 **Groupe :** B2
 **N° étudiant :** e22601522
 ## Exercice 2 – Correction d’erreurs
+---
 ```java
 /**
 * Correction d’erreurs R1.01
