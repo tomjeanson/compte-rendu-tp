@@ -317,9 +317,9 @@ Pas de rendu de monnaie
 
 ------------------
 (program exited with code: 0)
+Press return to continue
 ```
 ```java
-Press return to continue
 Entrer le prix : 14
 Entrer le montant entré dans la machine : 35
 Rendu monnaie de :21
@@ -329,6 +329,4 @@ Rendu monnaie de :21
 ------------------
 (program exited with code: 0)
 Press return to continue
-
-	
 ```
