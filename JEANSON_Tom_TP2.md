@@ -474,3 +474,100 @@ Nombre trouvé !
 (program exited with code: 0)
 Press return to continue
 ```
+## Exercice 7 – Projet Euler : Problème 1
+#### Code
+```java
+/**
+* R1.01 - Exercice 7 – Projet Euler : Problème 1
+* @author Tom JEANSON
+*/
+class ProjetEuler {
+	void principal() {
+		int i;
+		i = 0;
+		System.out.println("Multiples de 3 et 5 :");
+		while(i < 1000) {
+			if(i%3 == 0 && i%5 == 0) {
+				System.out.println(i);
+			}
+			i = i + 1;
+		}
+	}
+}
+```
+#### Sortie
+```java
+Multiples de 3 et 5 :
+0
+15
+30
+45
+60
+75
+90
+105
+120
+135
+150
+165
+180
+195
+210
+225
+240
+255
+270
+285
+300
+315
+330
+345
+360
+375
+390
+405
+420
+435
+450
+465
+480
+495
+510
+525
+540
+555
+570
+585
+600
+615
+630
+645
+660
+675
+690
+705
+720
+735
+750
+765
+780
+795
+810
+825
+840
+855
+870
+885
+900
+915
+930
+945
+960
+975
+990
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
