@@ -330,3 +330,51 @@ Rendu monnaie de :21
 (program exited with code: 0)
 Press return to continue
 ```
+## Exercice 5 – Devine le nombre...
+#### Code
+```java
+/**
+* R1.01 - Exercice 5 – Devine le nombre...
+* @author Tom JEANSON
+*/
+class DevineNombre {
+	void principal() {
+		int nbrUser, i;
+		i = 0;
+		int nbrMystere = (int) (Math.random() * 100);
+		do {
+			nbrUser = SimpleInput.getInt("Entrer un nombre : ");
+			i = i + 1;
+			if (nbrUser > nbrMystere) {
+				System.out.println("Trop grand !");
+			} else if (nbrUser < nbrMystere) {
+				System.out.println("Trop petit !");
+			}
+		} while(nbrUser != nbrMystere);
+		System.out.println("Nombre trouvé en " + i + " itération(s)");
+	}
+}
+
+```
+#### Sortie
+```java
+Entrer un nombre : 1
+Trop petit !
+Entrer un nombre : 5
+Trop petit !
+Entrer un nombre : 45
+Trop petit !
+Entrer un nombre : 85
+Trop grand !
+Entrer un nombre : 60
+Trop grand !
+Entrer un nombre : 50
+Trop grand !
+Entrer un nombre : 47
+Nombre trouvé en 7 itération(s)
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
