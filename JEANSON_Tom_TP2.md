@@ -378,3 +378,99 @@ Nombre trouvé en 7 itération(s)
 (program exited with code: 0)
 Press return to continue
 ```
+## Exercice 6 – Fais deviner un nombre...
+#### Code
+```java
+/**
+* R1.01 - Exercice 6 – Fais deviner un nombre...
+* @author Tom JEANSON
+*/
+class TrouveNombre {
+	void principal() {
+			int nbr, a, b;
+			char diff;
+			boolean sucess;
+			sucess = false;
+			a = 0;
+			b = 1000;
+			System.out.println("Pensez à un nombre entre 0 et 1000");
+			do {
+				nbr = (b - a) / 2 + a;
+				System.out.println("Le nombre auquel vous pensez est-il : " + nbr + " ?");
+				diff = SimpleInput.getChar("Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + ");
+				if (diff == '=') {
+					System.out.println("Nombre trouvé !");
+					sucess = true;
+				} else if (diff == '-') {
+					b = nbr;
+				} else if (diff == '+') {
+					a = nbr;
+				}else {
+					System.out.println("Valeur incorrect");
+				}
+			} while (sucess == false);
+	}
+}
+```
+#### Sortie
+*Je prends 72 comme valeur :*
+```java
+Pensez à un nombre entre 0 et 1000
+Le nombre auquel vous pensez est-il : 500 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + -
+Le nombre auquel vous pensez est-il : 250 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + -
+Le nombre auquel vous pensez est-il : 125 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + -
+Le nombre auquel vous pensez est-il : 62 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + +
+Le nombre auquel vous pensez est-il : 93 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + -
+Le nombre auquel vous pensez est-il : 77 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + -
+Le nombre auquel vous pensez est-il : 69 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + +
+Le nombre auquel vous pensez est-il : 73 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + -
+Le nombre auquel vous pensez est-il : 71 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + +
+Le nombre auquel vous pensez est-il : 72 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + =
+Nombre trouvé !
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+
+```
+*Je prends 932 comme valeur :*
+```java
+Pensez à un nombre entre 0 et 1000
+Le nombre auquel vous pensez est-il : 500 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + +
+Le nombre auquel vous pensez est-il : 750 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + +
+Le nombre auquel vous pensez est-il : 875 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + +
+Le nombre auquel vous pensez est-il : 937 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + -
+Le nombre auquel vous pensez est-il : 906 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + +
+Le nombre auquel vous pensez est-il : 921 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + +
+Le nombre auquel vous pensez est-il : 929 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + +
+Le nombre auquel vous pensez est-il : 933 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + -
+Le nombre auquel vous pensez est-il : 931 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + +
+Le nombre auquel vous pensez est-il : 932 ?
+Si c'est le bon nombre, entrez : = ; Si c'est supérieur à votre nombre, entrez : - ; si c'est inférieur à votre nombre, entrez : + =
+Nombre trouvé !
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
