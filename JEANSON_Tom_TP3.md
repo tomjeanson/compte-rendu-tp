@@ -188,7 +188,7 @@ Cumul	 : {0,1,2,4,7,12,20,33,54,88,143,232,368}
 (program exited with code: 0)
 Press return to continue
 ```
-##Exercice 3
+## Exercice 3
 ### 1 Version While
 #### Code
 ```java
@@ -309,4 +309,138 @@ Plus grande séquence croissante : 9
 ------------------
 (program exited with code: 0)
 Press return to continue
+```
+### 2 Version While
+#### Code
+```java
+/**
+* R1.01 - Exercice 3
+* @author Tom JEANSON
+*/
+class Croissant{
+	void principal(){
+		int[] t = {5,7,0,6,10,8,4,1,35,25,8,3};
+		System.out.print("t\t : ");
+		displayTab(t);
+		int biggest = 0;
+		int start = 0;
+		int currentStart = 1;
+		int end = 0;
+		int i = 1;
+		int currentLength = 1;
+		while(i < t.length && biggest < (t.length - i)){
+			if(t[i] >= t[i - 1]) {
+				currentLength ++;
+			}else{
+				if(currentLength > biggest){
+					biggest = currentLength;
+					start = currentStart;
+				}
+				currentLength = 1;
+				currentStart = i;
+			}
+			i++;
+		}
+		end = start + biggest - 1;
+		System.out.println("Plus grande séquence croissante : " + biggest);
+		System.out.println("Indice de début : " + start);
+		System.out.println("Indice de fin : " + end);
+	}
+	void displayTab(int[] t){
+		int i = 0;
+		System.out.print("{");
+		while(i<t.length-1){
+			System.out.print(t[i] + ",");
+			i=i+1;
+		}
+		if(t.length !=0){
+			System.out.println(t[i]+"}");
+		}else{
+			System.out.println("}");
+		}
+	}
+}
+```
+
+#### Sortie
+```java
+t	 : {5,7,0,6,10,8,4,1,35,25,8,3}
+Plus grande séquence croissante : 3
+Indice de début : 2
+Indice de fin : 4
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+
+### 2 Version For
+#### Code
+```java
+/**
+* R1.01 - Exercice 3
+* @author Tom JEANSON
+*/
+class Croissant{
+	void principal(){
+		int[] t = {5,0,0,6,10,12,28,35,45,45,3,5,6,4};
+		System.out.print("t\t : ");
+		displayTab(t);
+		int biggest = 0;
+		int start = 0;
+		int currentStart = 1;
+		int end = 0;
+		for(int i = 1, currentLength = 1; i < t.length && biggest < (t.length - i);	i++){
+			if(t[i] >= t[i - 1]) {
+				currentLength ++;
+			}else{
+				if(currentLength > biggest){
+					biggest = currentLength;
+					start = currentStart;
+				}
+				currentLength = 1;
+				currentStart = i;
+			}
+		}
+		end = start + biggest - 1;
+		System.out.println("Plus grande séquence croissante : " + biggest);
+		System.out.println("Indice de début : " + start);
+		System.out.println("Indice de fin : " + end);
+	}
+	void displayTab(int[] t){
+		int i = 0;
+		System.out.print("{");
+		while(i<t.length-1){
+			System.out.print(t[i] + ",");
+			i=i+1;
+		}
+		if(t.length !=0){
+			System.out.println(t[i]+"}");
+		}else{
+			System.out.println("}");
+		}
+	}
+}
+```
+#### Sortie
+```java
+t	 : {5,0,0,6,10,12,28,35,45,45,3,5,6,4}
+Plus grande séquence croissante : 9
+Indice de début : 1
+Indice de fin : 9
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+## Exercice 4
+#### Code
+```java
+
+```
+#### Sortie
+```java
+
 ```
