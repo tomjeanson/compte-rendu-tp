@@ -374,6 +374,17 @@ Indice de fin : 4
 (program exited with code: 0)
 Press return to continue
 ```
+```java
+t	 : {}
+Plus grande séquence croissante : 0
+Indice de début : 0
+Indice de fin : -1
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
 
 ### 2 Version For
 #### Code
@@ -435,12 +446,232 @@ Indice de fin : 9
 (program exited with code: 0)
 Press return to continue
 ```
+```java
+t	 : {}
+Plus grande séquence croissante : 0
+Indice de début : 0
+Indice de fin : -1
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
 ## Exercice 4
 #### Code
 ```java
-
+/**
+* R1.01 - Exercice 4
+* @author Tom JEANSON
+*/
+class TirageAleatoire{
+	void principal(){
+		int[] t = new int[10];
+		for(int i = 0, nbr = 0; i < 1000; i++){
+			nbr = (int) (Math.random() * 10);
+			t[nbr] = t[nbr] + 1;
+		}
+		System.out.print("Tirage Aléatoire\t : ");
+		displayTab(t);
+	}
+	void displayTab(int[] t){
+		int i = 0;
+		System.out.print("{");
+		while(i<t.length-1){
+			System.out.print(t[i] + ",");
+			i=i+1;
+		}
+		if(t.length !=0){
+			System.out.println(t[i]+"}");
+		}else{
+			System.out.println("}");
+		}
+	}
+}
 ```
 #### Sortie
 ```java
+Tirage Aléatoire	 : {96,99,90,100,88,88,116,106,111,106}
 
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+```java
+Tirage Aléatoire	 : {104,86,108,100,102,102,93,96,109,100}
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+```java
+Tirage Aléatoire	 : {89,96,102,99,100,94,98,100,106,116}
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+## Exercice 5 : Conjecture de Syracuse
+#### Code
+```java
+/**
+* R1.01 - Exercice 5 : Conjecture de Syracuse
+* @author Tom JEANSON
+*/
+class Syracuse{
+	void principal(){
+		int nbr = 0;
+		int i = 0;
+		do{
+			nbr = SimpleInput.getInt("Entrer un entier : ");
+		}while(nbr <= 0);
+		int nbrMax = nbr;
+		while(nbr!=1){
+			if(nbr%2 == 0){
+				nbr = nbr / 2;
+			}else{
+				nbr = nbr * 3 + 1;
+			}
+			if(nbr > nbrMax){
+				nbrMax = nbr;
+			}
+			i++;
+		}
+		System.out.println("Nombre d'itérations : " + i);
+		System.out.println("Nombre Max : " + nbrMax);
+	}
+}
+```
+#### Sortie
+```java
+Entrer un entier : 5
+Nombre d'itérations : 5
+Nombre Max : 16
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+```java
+Entrer un entier : -5
+Entrer un entier : 0
+Entrer un entier : 1
+Nombre d'itérations : 0
+Nombre Max : 1
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+```java
+Entrer un entier : 151
+Nombre d'itérations : 15
+Nombre Max : 1024
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+## Exercice 6
+#### Code
+```java
+/**
+* R1.01 - Exercice 6
+* @author Tom JEANSON
+*/
+class ExerciceSix{
+	void principal(){
+		int[] t = {5,7,0,6,10,8,4,1,35,25,8,3};
+		System.out.print("t\t : ");
+		displayTab(t);
+		int a = 0;
+		int b = 0;
+		int i = 0;
+		boolean aIsHere = false;
+		boolean fini = false;
+		a = SimpleInput.getInt("Entrer entier a : ");
+		b = SimpleInput.getInt("Entrer entier b : ");
+		while(i < t.length && !fini){
+			if(aIsHere == false) {
+				if(a == t[i]){
+					aIsHere = true;
+				}
+			}else{
+				if(b==t[i]){
+					fini = true;
+				}
+			}
+			i++;
+		}
+		if(fini == true){
+			System.out.println(a + " et " + b + " sont présents dans la liste dans cet ordre");
+		}else{
+			System.out.println(a + " et " + b + " ne sont pas présents dans la liste dans cet ordre");
+		}
+	}
+	void displayTab(int[] t){
+		int i = 0;
+		System.out.print("{");
+		while(i<t.length-1){
+			System.out.print(t[i] + ",");
+			i=i+1;
+		}
+		if(t.length !=0){
+			System.out.println(t[i]+"}");
+		}else{
+			System.out.println("}");
+		}
+	}
+}
+```
+#### Sortie
+```java
+t	 : {5,7,0,6,10,8,4,1,35,25,8,3}
+Entrer entier a : 25
+Entrer entier b : 8
+25 et 8 sont présents dans la liste dans cet ordre
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+```java
+t	 : {}
+Entrer entier a : 5
+Entrer entier b : 8
+5 et 8 ne sont pas présents dans la liste dans cet ordre
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+```java
+t	 : {5,7,0,6,10,8,4,1,35,25,8,3}
+Entrer entier a : 5
+Entrer entier b : 8
+5 et 8 sont présents dans la liste dans cet ordre
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+```java
+t	 : {5,7,0,6,10,8,4,1,35,25,8,3}
+Entrer entier a : 8
+Entrer entier b : 5
+8 et 5 ne sont pas présents dans la liste dans cet ordre
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
 ```
