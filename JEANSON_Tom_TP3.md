@@ -675,3 +675,81 @@ Entrer entier b : 5
 (program exited with code: 0)
 Press return to continue
 ```
+## Exercice 7
+#### Code
+```java
+/**
+* R1.01 - Exercice 7
+* @author Tom JEANSON
+*/
+class ExerciceSept{
+	void principal(){
+		int[] t1 = {5,7,0,6,10,8,4,1,35,25,8,3};
+		System.out.print("t1\t : ");
+		displayTab(t1);
+		int[] t2 = {0,8,4,1,35,2,4};
+		System.out.print("t2\t : ");
+		displayTab(t2);
+		int i = 0;
+		int tabAdvanc = 0;
+		int[] t3 = new int[t1.length + t2.length];
+		while(i < t1.length || i < t2.length){
+			if(tabAdvanc < t1.length){
+				t3[i] = t1[tabAdvanc];
+				i++;
+			}
+			if(tabAdvanc < t2.length){
+				t3[i] = t2[tabAdvanc];
+				i++;
+			}
+			tabAdvanc++;
+		}
+		System.out.print("t3\t : ");
+		displayTab(t3);
+	}
+	void displayTab(int[] t){
+		int i = 0;
+		System.out.print("{");
+		while(i<t.length-1){
+			System.out.print(t[i] + ",");
+			i=i+1;
+		}
+		if(t.length !=0){
+			System.out.println(t[i]+"}");
+		}else{
+			System.out.println("}");
+		}
+	}
+}
+```
+#### Sortie
+```java
+t1	 : {5,7,0,6,10,8,4,1,35,25,8,3}
+t2	 : {0,8,4,1,35,2,4}
+t3	 : {5,0,7,8,0,4,6,1,10,35,8,2,4,4,1,35,25,8,3}
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+```java
+t1	 : {5,7,0,6,10,8,4,1,35,25,8,3}
+t2	 : {}
+t3	 : {5,7,0,6,10,8,4,1,35,25,8,3}
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+```java
+t1	 : {5,7,0,6,10,8,4,1,35,25,8,3}
+t2	 : {4,17,9,5,3,0,46,4,1,12,7,45,10}
+t3	 : {5,4,7,17,0,9,6,5,10,3,8,0,4,46,1,4,35,1,25,12,8,7,3,45,10}
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
