@@ -693,7 +693,7 @@ class ExerciceSept{
 		int i = 0;
 		int tabAdvanc = 0;
 		int[] t3 = new int[t1.length + t2.length];
-		while(i < t1.length || i < t2.length){
+		while(i < t3.length){
 			if(tabAdvanc < t1.length){
 				t3[i] = t1[tabAdvanc];
 				i++;
