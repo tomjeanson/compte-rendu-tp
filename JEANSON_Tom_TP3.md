@@ -341,7 +341,11 @@ class Croissant{
 			}
 			i++;
 		}
-		end = start + biggest - 1;
+		if(t.length == 0){
+			end = 0;
+		}else{
+			end = start + biggest - 1;
+		}
 		System.out.println("Plus grande séquence croissante : " + biggest);
 		System.out.println("Indice de début : " + start);
 		System.out.println("Indice de fin : " + end);
@@ -378,7 +382,7 @@ Press return to continue
 t	 : {}
 Plus grande séquence croissante : 0
 Indice de début : 0
-Indice de fin : -1
+Indice de fin : 0
 
 
 ------------------
@@ -414,7 +418,11 @@ class Croissant{
 				currentStart = i;
 			}
 		}
-		end = start + biggest - 1;
+		if(t.length == 0){
+			end = 0;
+		}else{
+			end = start + biggest - 1;
+		}
 		System.out.println("Plus grande séquence croissante : " + biggest);
 		System.out.println("Indice de début : " + start);
 		System.out.println("Indice de fin : " + end);
@@ -450,12 +458,26 @@ Press return to continue
 t	 : {}
 Plus grande séquence croissante : 0
 Indice de début : 0
-Indice de fin : -1
+Indice de fin : 0
 
 
 ------------------
 (program exited with code: 0)
 Press return to continue
+```
+```java
+t	 : {5,4,3,2,1}
+Plus grande séquence croissante : 1
+Indice de début : 1
+Indice de fin : 1
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+```java
+
 ```
 ## Exercice 4
 #### Code
