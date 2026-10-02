@@ -366,9 +366,282 @@ Press return to continue
 Je n'ai pas remis le test de estDiviseur car déjà fait dans l'exercice d'avant.
 #### Code
 ```java
+/**
+* R1.01 - Exercice 3 – Nombre parfait
+* @author Tom JEANSON
+*/
+class NombreParfait{
+	void principal(){
+		System.out.println("6 est un nombre parfait renvoie : " + estParfait(6));
+		System.out.println("8 est un nombre parfait renvoie : " + estParfait(8));
+	}
+	
+	/**
+	* teste si un nombre est parfait
+	* @param a entier positif
+	* @return vrai ssi a est un nombre parfait
+	*/
+	boolean estParfait (int a) {
+		int sommeDiviseur = 0;
+		int i = 1;
+		boolean result = false;
+		while(i < a && sommeDiviseur <= a){
+			if(estDiviseur(a,i) == true){
+				sommeDiviseur = sommeDiviseur + i;
+			}
+			i++;
+		}
+		if(sommeDiviseur == a){
+			result = true;
+		}
+		return result;
+	}
+
+	/**
+	* teste la divisibilité de deux entiers
+	* @param p entier positif à tester pour la divisibilité
+	* @param q diviseur strictement positif
+	* @return vrai ssi q divise p
+	*/
+	boolean estDiviseur (int p, int q){
+		boolean diviseur = false;
+		if(p%q == 0){
+			diviseur = true;
+		}
+		return diviseur;
+	}
+}
+```
+#### Sortie
+```java
+6 est un nombre parfait renvoie : true
+8 est un nombre parfait renvoie : false
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+### 2.
+#### Code
+```java
+/**
+* R1.01 - Exercice 3 – Nombre parfait
+* @author Tom JEANSON
+*/
+class NombreParfait{
+	void principal(){
+		testEstParfait();
+	}
+	
+	/**
+	* teste si un nombre est parfait
+	* @param a entier positif
+	* @return vrai ssi a est un nombre parfait
+	*/
+	boolean estParfait (int a) {
+		int sommeDiviseur = 0;
+		int i = 1;
+		boolean result = false;
+		while(i < a && sommeDiviseur <= a){
+			if(estDiviseur(a,i) == true){
+				sommeDiviseur = sommeDiviseur + i;
+			}
+			i++;
+		}
+		if(sommeDiviseur == a){
+			result = true;
+		}
+		return result;
+	}
+
+	/**
+	* teste la divisibilité de deux entiers
+	* @param p entier positif à tester pour la divisibilité
+	* @param q diviseur strictement positif
+	* @return vrai ssi q divise p
+	*/
+	boolean estDiviseur (int p, int q){
+		boolean diviseur = false;
+		if(p%q == 0){
+			diviseur = true;
+		}
+		return diviseur;
+	}
+	
+	/**
+	 * Teste la méthode estParfait	
+	 */
+	void testEstParfait(){
+		System.out.println ();
+		System.out.println ("*** testEstParfait()");
+		testCasEstParfait(6, true);
+		testCasEstParfait(10, false);
+		testCasEstParfait(28, true);
+		testCasEstParfait(35, false);
+		testCasEstParfait(496, true);
+	}
+	
+	/**
+	 * Teste un appel de estParfait
+	 * @param nombre a verifier
+	 * @param resultat attendu
+	 */
+	void testCasEstParfait(int a, boolean result){
+		// Affichage
+		System.out.print ("estParfait (" + a + ") \t= " + result + "\t : ");
+		
+		// Appel
+		boolean resExec = estParfait(a);
+		
+		// Verification
+		if (resExec == result){
+		System.out.println ("OK");
+		} else {
+		System.err.println ("ERREUR");
+		}
+	}	
+}
+```
+#### Sortie
+```java
+*** testEstParfait()
+estParfait (6) 	= true	 : OK
+estParfait (10) 	= false	 : OK
+estParfait (28) 	= true	 : OK
+estParfait (35) 	= false	 : OK
+estParfait (496) 	= true	 : OK
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+### 3.
+J'ai amélioré légérement le code de estParfait en allant que jusqu'à n/2 d'un nombre n calculé car il est evident que tout ce qui sera superieur a n/2 ne sera pas diviseur de n à part n lui même qu'on ne compte pas dans estParfait. De plus j'ai ajouté un test pour 1 qui marche effectivement. Il y a un léger problème d'affichage avec les tab dans les tests d'execution que je ne sais pas vraiment géré néanmoins.
+#### Code
+```java
+/**
+* R1.01 - Exercice 3 – Nombre parfait
+* @author Tom JEANSON
+*/
+class NombreParfait{
+	void principal(){
+		testEstParfait();
+		QuatreNbParfaits();
+	}
+		
+	/**
+	* teste si un nombre est parfait
+	* @param a entier positif
+	* @return vrai ssi a est un nombre parfait
+	*/
+	boolean estParfait (int a) {
+		int sommeDiviseur = 0;
+		int i = 1;
+		boolean result = false;
+		while(i <= (a/2) && sommeDiviseur <= a){
+			if(estDiviseur(a,i) == true){
+				sommeDiviseur = sommeDiviseur + i;
+			}
+			i++;
+		}
+		if(sommeDiviseur == a){
+			result = true;
+		}
+		return result;
+	}
+
+	/**
+	* teste la divisibilité de deux entiers
+	* @param p entier positif à tester pour la divisibilité
+	* @param q diviseur strictement positif
+	* @return vrai ssi q divise p
+	*/
+	boolean estDiviseur (int p, int q){
+		boolean diviseur = false;
+		if(p%q == 0){
+			diviseur = true;
+		}
+		return diviseur;
+	}
+		
+	/**
+	* Teste la méthode estParfait	
+	*/
+	void testEstParfait(){
+		System.out.println ();
+		System.out.println ("*** testEstParfait()");
+		testCasEstParfait(1, false);
+		testCasEstParfait(6, true);
+		testCasEstParfait(10, false);
+		testCasEstParfait(28, true);
+		testCasEstParfait(35, false);
+		testCasEstParfait(496, true);
+	}
+		
+	/**
+	* Teste un appel de estParfait
+	* @param nombre a verifier
+	* @param resultat attendu
+	*/
+	void testCasEstParfait(int a, boolean result){
+		// Affichage
+		System.out.print ("estParfait (" + a + ") \t= " + result + "\t : ");
+			
+		// Appel
+		boolean resExec = estParfait(a);
+			
+		// Verification
+		if (resExec == result){
+		System.out.println ("OK");
+		} else {
+		System.err.println ("ERREUR");
+		}
+	}
+		
+	/**
+	* Affiche les quatre premiers nombres parfaits
+	*/
+	void QuatreNbParfaits(){
+		System.out.println("Les quatres premiers nombres parfaits sont : ");
+		for(int i = 1, totalParfaits = 0; totalParfaits < 4; i++){
+			if(estParfait(i) == true){
+				totalParfaits ++;
+				System.out.println("- " + i);
+			}
+		}
+	}
+}
+
+```
+#### Sortie
+```java
+*** testEstParfait()
+estParfait (1) 	= false	 : OK
+estParfait (6) 	= true	 : OK
+estParfait (10) 	= false	 : OK
+estParfait (28) 	= true	 : OK
+estParfait (35) 	= false	 : OK
+estParfait (496) 	= true	 : OK
+Les quatres premiers nombres parfaits sont : 
+- 6
+- 28
+- 496
+- 8128
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+## Exercice 4 - Ordre croissant
+### 1.
+#### Code
+```java
 
 ```
 #### Sortie
 ```java
 
-```
+```	
