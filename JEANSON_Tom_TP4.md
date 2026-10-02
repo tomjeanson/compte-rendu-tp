@@ -637,11 +637,80 @@ Press return to continue
 ```
 ## Exercice 4 - Ordre croissant
 ### 1.
+J'ai réutilisé la méthode displayTab du TP précédent afin d'afficher dans le terminal les tableaux pour les tests.
 #### Code
 ```java
+/**
+* R1.01 - Exercice 4 - Ordre croissant
+* @author Tom JEANSON
+*/
+class OrdreCroissant{
+	void principal(){
+		testEstCroissant();
+	}
+	
+	/**
+	* teste si les valeurs d’un tableau sont triées par ordre croissant
+	* @param t tableau d’entiers
+	* @return vrai ssi les valeurs du tableau sont en ordre croissant
+	*/
+	boolean estCroissant (int[] t){
+		return true;
+		}
 
+	void testEstCroissant(){
+		System.out.println ();
+		System.out.println ("*** testEstCroissant()");
+		testCasEstCroissant(new int[]{1,2,3,4,4},true);
+		testCasEstCroissant(new int[]{-10,-5,0,12,45},true);
+		testCasEstCroissant(new int[]{4,5,8,12,11,15},false);
+		testCasEstCroissant(new int[]{1},true);
+	}
+
+	void testCasEstCroissant(int[] t, boolean result){
+		//Affichage
+		System.out.print("estCroissant(");
+		displayTab(t);
+		System.out.print(") \t= " + result + "\t : ");
+		
+		//Appel
+		boolean resExec = estCroissant(t);
+		
+		//Verification
+		if (resExec == result){
+		System.out.println ("OK");
+		} else {
+		System.err.println ("ERREUR");
+		}
+	}
+
+
+	void displayTab(int[] t){
+		int i = 0;
+		System.out.print("{");
+		while(i<t.length-1){
+			System.out.print(t[i] + ",");
+			i=i+1;
+		}
+		if(t.length !=0){
+			System.out.print(t[i]+"}");
+		}else{
+			System.out.print("}");
+		}
+	}
+}
 ```
 #### Sortie
+Nécessairement fausse car estCroissant renvoie toujours true afin que le programme s'éxecute.	
 ```java
+*** testEstCroissant()
+estCroissant({1,2,3,4,4}) 	= true	 : OK
+estCroissant({-10,-5,0,12,45}) 	= true	 : OK
+estCroissant({4,5,8,12,11,15}) 	= false	 : ERREUR
+estCroissant({1}) 	= true	 : OK
 
+
+------------------
+(program exited with code: 0)
+Press return to continue
 ```	
