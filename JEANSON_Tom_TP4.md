@@ -658,6 +658,9 @@ class OrdreCroissant{
 		return true;
 		}
 
+	/**
+	 * Teste la méthode estCroissant
+	 */
 	void testEstCroissant(){
 		System.out.println ();
 		System.out.println ("*** testEstCroissant()");
@@ -667,6 +670,11 @@ class OrdreCroissant{
 		testCasEstCroissant(new int[]{1},true);
 	}
 
+	/**
+	 * Teste la méthode estCroissant
+	 * @param tableau d'entiers à verifier
+	 * @param resultat attendu
+	 */
 	void testCasEstCroissant(int[] t, boolean result){
 		//Affichage
 		System.out.print("estCroissant(");
@@ -714,3 +722,212 @@ estCroissant({1}) 	= true	 : OK
 (program exited with code: 0)
 Press return to continue
 ```	
+### 2.
+#### Code
+```java
+/**
+* R1.01 - Exercice 4 - Ordre croissant
+* @author Tom JEANSON
+*/
+class OrdreCroissant{
+	void principal(){
+		testEstCroissant();
+	}
+	
+	/**
+		 teste si les valeurs d’un tableau sont triées par ordre croissant
+	* @param t tableau d’entiers
+	* @return vrai ssi les valeurs du tableau sont en ordre croissant
+	*/
+	boolean estCroissant (int[] t){
+		boolean result = true;
+		for(int i = 0; i < t.length - 1 && result == true; i++){
+			if(t[i] > t[i+1]){
+				result = false;
+			}
+		}
+		return result;
+	}
+	
+	/**
+	 * Teste la méthode estCroissant
+	 */
+	void testEstCroissant(){
+		System.out.println ();
+		System.out.println ("*** testEstCroissant()");
+		int[] a = {1,2,3,4,4};
+		testCasEstCroissant(a,true);
+		testCasEstCroissant(a = new int[] {-10,-5,0,12,45},true);
+		testCasEstCroissant(a = new int[]{4,5,8,12,11,15},false);
+		testCasEstCroissant(a = new int[]{1},true);
+		testCasEstCroissant(a = new int[]{6,2},false);
+	}
+
+	/**
+	 * Teste la méthode estCroissant
+	 * @param tableau d'entiers à verifier
+	 * @param resultat attendu
+	 */
+	void testCasEstCroissant(int[] t, boolean result){
+		//Affichage
+		System.out.print("estCroissant(");
+		displayTab(t);
+		System.out.print(") \t= " + result + "\t : ");
+		
+		//Appel
+		boolean resExec = estCroissant(t);
+		
+		//Verification
+		if (resExec == result){
+		System.out.println ("OK");
+		} else {
+		System.err.println ("ERREUR");
+		}
+	}
+
+
+	void displayTab(int[] t){
+		int i = 0;
+		System.out.print("{");
+		while(i<t.length-1){
+			System.out.print(t[i] + ",");
+			i=i+1;
+		}
+		if(t.length !=0){
+			System.out.print(t[i]+"}");
+		}else{
+			System.out.print("}");
+		}
+	}
+}
+```
+#### Sortie
+```java
+*** testEstCroissant()
+estCroissant({1,2,3,4,4}) 	= true	 : OK
+estCroissant({-10,-5,0,12,45}) 	= true	 : OK
+estCroissant({4,5,8,12,11,15}) 	= false	 : OK
+estCroissant({1}) 	= true	 : OK
+estCroissant({6,2}) 	= false	 : OK
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+## Exercice 5 - Nombres d'occurrences
+### 1.
+#### Code
+```java
+/**
+* R1.01 -Exercice 5 - Nombres d'occurrences
+* @author Tom JEANSON
+*/
+class NbOccurences{
+	void principal(){
+		String a = "texte pour test";
+		char b = 't';
+		System.out.println("Nombre de " + b + " dans la chaine de caractère : \t" + a + " = \t" + nbOcc(a,b));
+	}
+	
+	/**
+	* cherche combien de fois un caractère est présent dans une chaîne de caractères
+	* @param chaine Chaine de caractère
+	* @param car Caractere a rechercher
+	* @return nombre d’occurences de car dans chaine
+	*/
+	int nbOcc (String chaine, char c){
+		int result = 0;
+		for(int i = 0; i < chaine.length() ; i++){
+			if(chaine.charAt(i) == c){
+				result ++;
+			}
+		}
+		return result;
+	}
+}
+```
+#### Sortie
+```java
+Nombre de t dans la chaine de caractère : 	texte pour test = 	4
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+
+```
+### 2.
+#### Code
+```java
+/**
+* R1.01 -Exercice 5 - Nombres d'occurrences
+* @author Tom JEANSON
+*/
+class NbOccurences{
+	void principal(){
+		testNbOcc();
+	}
+	
+	/**
+	* cherche combien de fois un caractère est présent dans une chaîne de caractères
+	* @param chaine Chaine de caractère
+	* @param car Caractere a rechercher
+	* @return nombre d’occurences de car dans chaine
+	*/
+	int nbOcc (String chaine, char c){
+		int result = 0;
+		for(int i = 0; i < chaine.length() ; i++){
+			if(chaine.charAt(i) == c){
+				result ++;
+			}
+		}
+		return result;
+	}
+	/**
+	* Teste la méthode NbOcc
+	*/
+	void testNbOcc(){
+		System.out.println ();
+		System.out.println ("*** testNbOcc()");
+		testCasNbOcc("bonjour",'z',0);
+		testCasNbOcc("eternel",'e',3);
+		testCasNbOcc("aller au restaurant",'u',2);
+		testCasNbOcc("aller au restaurant",'a',4);
+	}
+	
+	/**
+	* Teste
+	* @param chaine Chaine de caractère
+	* @param car Caractere a rechercher
+	* @return nombre d’occurences de car dans chaine
+	*/
+	void testCasNbOcc(String chaine, char c, int result){
+		//Affichage
+		System.out.print("NbOcc(" + chaine + ", " + c + ") \t= " + result + "\t : ");
+		
+		//Appel
+		int resExec = nbOcc(chaine, c);
+		
+		//Verification
+		if (resExec == result){
+		System.out.println ("OK");
+		} else {
+		System.err.println ("ERREUR");
+		}
+	}
+}
+```
+#### Sortie
+```java
+*** testNbOcc()
+NbOcc(bonjour, z) 	= 0	 : OK
+NbOcc(eternel, e) 	= 3	 : OK
+NbOcc(aller au restaurant, u) 	= 2	 : OK
+NbOcc(aller au restaurant, a) 	= 4	 : OK
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
