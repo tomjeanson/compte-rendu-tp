@@ -784,4 +784,314 @@ Press return to continue
 
 ## Exercice 3 - Valeurs différentes
 ### Code
+```java
+/**
+* R1.01 - Exercice 3 - Valeurs différentes
+* @author Tom JEANSON
+*/
+class ValDiff{
+	void principal(){
+		testCompteDiffVal();
+	}
+	
+	/**
+	* compte le nombre de valeurs différentes dans un tableau
+	* @param tab tableau d’entiers
+	* @return le nombre de valeurs différentes du tableau
+	*/
+	int compteDiffVal(int[] tab){
+		int nbrValDiff = 0;
+		int [] valConnu = new int [tab.length];
+		for(int i = 0; i < tab.length; i++){
+			boolean different = true;
+			int j = 0;
+			while(j < nbrValDiff && different){
+				if(tab[i] == valConnu[j]){
+					different = false;
+				}
+				j++;
+			}
+			if(different){
+				valConnu[j] = tab[i];
+				nbrValDiff ++;
+			}
+		}
+		return nbrValDiff;
+	}
+	
+	/**
+	* Teste la fonction compteDiffVal()
+	*/
+	void testCompteDiffVal(){
+		System.out.println ();
+		System.out.println ("*** testCompteDiffVal");
+		testCasCompteDiffVal(new int[]{1,1,1,1},1);
+		testCasCompteDiffVal(new int[]{1,2,3,4},4);
+		testCasCompteDiffVal(new int[]{},0);
+		testCasCompteDiffVal(new int[]{1,2,3,1,2,3},3);
+	}
+	
+	/**
+	* Teste un cas donné de la fonction compteDiffVal()
+	* @param tab tableau d’entiers
+	* @param result résultat attendu
+	*/
+	void testCasCompteDiffVal(int[] tab, int result){
+		//Affichage
+		System.out.print("compteDiffVal(");
+		displayTab(tab);
+		System.out.print(") \t= " + result + "\t :");
+		
+		//Appel
+		int resExec = compteDiffVal(tab);
+		
+		//Vérification
+		if (resExec == result){
+		System.out.println ("OK");
+		} else {
+		System.err.println ("ERREUR");
+		}
+	}
+	
+	/**
+	* Affiche le tableau demandé
+	* @param t tableau a afficher
+	*/
+	void displayTab(int[] t){
+		int i = 0;
+		System.out.print("{");
+		while(i<t.length-1){
+			System.out.print(t[i] + ",");
+			i=i+1;
+		}
+		if(t.length !=0){
+			System.out.print(t[i]+"}");
+		}else{
+			System.out.print("}");
+		}
+	}
+}
+```
 ### Sortie
+```java
+*** testCompteDiffVal
+compteDiffVal({1,1,1,1}) 	= 1	 :OK
+compteDiffVal({1,2,3,4}) 	= 4	 :OK
+compteDiffVal({}) 	= 0	 :OK
+compteDiffVal({1,2,3,1,2,3}) 	= 3	 :OK
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+## Exercice 4
+#### Code
+```java
+/**
+ * R1.01 - Exercice 4 - Sous-chaînes
+ * @author Tom JEANSON
+ */
+class SousChaines{
+	void principal(){
+		testEstSousChaine();
+	}
+	/**
+	* teste si une chaîne est une sous-chaîne d’une autre
+	* @param mot chaîne de caractères
+	* @param phrase chaîne de carectères
+	* @return vrai ssi mot est présent dans phrase
+	*/
+	boolean estSousChaine (String mot, String phrase){
+		boolean res = false;
+		int i = 0;
+		int j = 0;
+		while(i < phrase.length() - 1 && !res){
+			if(phrase.charAt(i) == mot.charAt(j)){
+				j++;
+				if(j == mot.length() - 1){
+					res = true;
+				}
+			}
+			else {
+				j = 0;
+			}
+			i++;
+		}
+		return res;
+	}
+	
+	/**
+	* Teste la fonction estSousChaine()
+	*/
+	void testEstSousChaine(){
+		System.out.println ();
+		System.out.println ("*** testEstSousChaine");
+		testCasEstSousChaine("ses","ses",true);
+		testCasEstSousChaine("ses","abcdsesdef",true);
+		testCasEstSousChaine("ses","abcdef",false);
+		testCasEstSousChaine("ses","abscdefse",false);
+		testCasEstSousChaine("ses","abkzeodlmzpses",true);
+	}
+	
+	/**
+	* Teste un cas donné de la fonction estSousChaine()
+	* @param mot chaîne de caractères
+	* @param phrase chaîne de carectères
+	* @param result résultat attendu
+	*/
+	void testCasEstSousChaine(String mot, String phrase, boolean result){
+		//Affichage
+		System.out.print("estSousChaine(" + mot + ", " + phrase + ") \t= " + result + "\t :");
+		
+		//Appel
+		boolean resExec = estSousChaine(mot,phrase);
+		
+		//Vérification
+		if (resExec == result){
+		System.out.println ("OK");
+		} else {
+		System.err.println ("ERREUR");
+		}
+	}
+}
+```
+#### Sortie
+```java
+*** testEstSousChaine
+estSousChaine(ses, ses) 	= true	 :OK
+estSousChaine(ses, abcdsesdef) 	= true	 :OK
+estSousChaine(ses, abcdef) 	= false	 :OK
+estSousChaine(ses, abscdefse) 	= false	 :OK
+estSousChaine(ses, abkzeodlmzpses) 	= true	 :OK
+
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+## Exercice 5 - Tri
+#### Code
+```java
+/**
+ * R1.01 - Exercice 5 - Tri
+ * @author Tom JEANSON
+ */
+class Tri{
+	final int LG_TAB = 10;
+	void principal(){
+		displayTab(saisirEtTrier());
+	}
+	
+	/**
+	* Crée et saisit un tableau trié de LG_TAB entiers
+	* @return tableau trié de LG-TAB entiers
+	*/
+	int[] saisirEtTrier () {
+		int[] t = new int[LG_TAB];
+		int i = 0;
+		
+		while (i < t.length) {
+			t[i] = SimpleInput.getInt ("Entrer un entier : ");
+			
+			// insertion de la valeur en ordre croissant dans t
+			int j = i;
+			int a = t[i];
+			while(j > 0 && a < t[j-1] ){
+				t[j] = t[j-1];
+				j--;
+			}
+			t[j] = a;
+			i = i + 1;
+		}
+		return t;
+	}
+	
+	/**
+	* Affiche le tableau demandé
+	* @param t tableau a afficher
+	*/
+	void displayTab(int[] t){
+		int i = 0;
+		System.out.print("{");
+		while(i<t.length-1){
+			System.out.print(t[i] + ",");
+			i=i+1;
+		}
+		if(t.length !=0){
+			System.out.print(t[i]+"}");
+		}else{
+			System.out.print("}");
+		}
+	}
+}
+```
+#### Sortie
+```java
+Entrer un entier : 10
+Entrer un entier : 9
+Entrer un entier : 8
+Entrer un entier : 7
+Entrer un entier : 6
+Entrer un entier : 5
+Entrer un entier : 4
+Entrer un entier : 3 
+Entrer un entier : 2
+Entrer un entier : 1
+{1,2,3,4,5,6,7,8,9,10}
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+```java
+Entrer un entier : 5
+Entrer un entier : 10
+Entrer un entier : 15
+Entrer un entier : 25
+Entrer un entier : 30
+Entrer un entier : 1
+Entrer un entier : 7
+Entrer un entier : 12
+Entrer un entier : 22
+Entrer un entier : 27
+{1,5,7,10,12,15,22,25,27,30}
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+```java
+Entrer un entier : 1
+Entrer un entier : 1
+Entrer un entier : 1
+Entrer un entier : 1
+Entrer un entier : 1
+Entrer un entier : 0
+Entrer un entier : 5
+Entrer un entier : 5
+Entrer un entier : 5
+Entrer un entier : 4
+{0,1,1,1,1,1,4,5,5,5}
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
+```java
+Entrer un entier : 1
+Entrer un entier : 2
+Entrer un entier : 3
+Entrer un entier : 4
+Entrer un entier : 5
+Entrer un entier : 6
+Entrer un entier : 7
+Entrer un entier : 8
+Entrer un entier : 9
+Entrer un entier : 10
+{1,2,3,4,5,6,7,8,9,10}
+
+------------------
+(program exited with code: 0)
+Press return to continue
+```
